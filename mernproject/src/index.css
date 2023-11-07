@@ -1,1 +1,157 @@
 @import url("../node_modules/bootstrap/dist/css/bootstrap.css");
+
+.card {
+    height: calc(100% - 20px);
+}
+
+.img-box {
+    width: 100%;
+    height: 200px;
+
+}
+
+.img-box img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.spin-div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spin-loader {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    position: relative;
+    border-width: 3px 2px 3px 2px;
+    border-style: solid dotted solid dotted;
+    border-color: #de3500 rgba(255, 255, 255,0.3) #fff rgba(151, 107, 93, 0.3);
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: 1s rotate linear infinite;
+ }
+ .spin-loader:before , .spin-loader:after{
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    border: 10px solid transparent;
+    border-bottom-color:#fff;
+    transform: translate(-10px, 19px) rotate(-35deg);
+  }
+ .spin-loader:after {
+    border-color: #de3500 #0000 #0000 #0000 ;
+    transform: translate(32px, 3px) rotate(-35deg);
+  }
+   @keyframes rotate {
+    100%{    transform: rotate(360deg)}
+  }
+
+.filters-controls {
+    display: flex;
+    align-items: center;
+    gap:10px;
+    padding: 10px;
+    justify-self: center;
+    width: 100%;
+}
+.filters-controls button{
+    border:0;
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+.filters-controls button:hover{
+    background: #de3500;
+}
+
+.likeIcon{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px gray;
+    /* border: 1px solid red; */
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 5px;
+    top: 8px;
+    cursor: pointer;
+}
+
+
+* {
+	box-sizing: border-box;
+
+}
+
+
+
+
+
+	.buttons {
+		display: flex;
+		flex-direction: row;
+        flex-wrap: wrap;
+	}
+	
+    .buttons	a {
+			padding: 15px 20px;
+			font-size: 13px;
+			font-weight: 700;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			text-decoration: none;
+			text-align: center;
+			margin: 1em;
+            flex: 1;
+		}
+
+		.buttons	a:hover {
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.20), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
+		}
+	
+	@media (min-width: 417px) and (max-width: 567px) {
+		.buttons	a {
+			padding: 15px 30px;
+			font-size: 16px;
+		}
+	}
+		
+	@media (min-width: 568px) {
+		.buttons	a {
+			padding: 15px 50px;
+			font-size: 20px;
+		}
+	}
+
+
+	.buttons .button2 {
+	color: #10FFB4;
+	background-color: #000;
+	transition: .2s ease-in-out;
+	border-left: 3px transparent solid;
+	border-right: 3px transparent solid;
+}
+
+.buttons .button2:hover {
+	color: #10FFB4;;
+	background-color: black;
+	border-left: #10FFB4 3px solid;
+	border-right: #10FFB4 3px solid;
+}

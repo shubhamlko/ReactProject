@@ -1,8 +1,37 @@
 import React from 'react'
 
-const FilterMenu = () => {
+const FilterMenu = (props) => {
+  let filterdata = props.filterdata;
+  // let category = props.category;
+  // let setCategory = props.setCategory;
+  // function filterHandler(title) {
+  //   setCategory(title);
+  // }
+
   return (
-    <div>FilterMenu</div>
+
+    <>
+
+      <div class="filters-controls">
+
+        {
+
+          filterdata.map((data) => (
+
+            // <button type="button" class="filter-control" key={data.id} onClick={() => filterHandler(data.title)}>
+            //   {data.title}
+            // </button>
+
+            <button type="button" class="filter-control" key={data.id}>
+              {data.title}
+            </button>
+
+          ))
+
+        }
+      </div>
+
+    </>
   )
 }
 

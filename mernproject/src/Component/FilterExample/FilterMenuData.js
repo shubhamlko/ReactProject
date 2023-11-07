@@ -1,0 +1,24 @@
+export const filterdatafromMenu = [
+    {
+        id: "1",
+        title: "ALL"
+    },
+    {
+        id: "2",
+        title: "Developent"
+    },
+    {
+        id: "3",
+        title: "Business"
+    },
+    {
+        id: "4",
+        title: "Design"
+    },
+    {
+        id: "5",
+        title: "LifeStyle"
+    },
+];
+
+export const apiUrl = "https://codehelp-apis.vercel.app/api/get-top-courses"
