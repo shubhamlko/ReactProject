@@ -5,7 +5,7 @@ export const filterdatafromMenu = [
     },
     {
         id: "2",
-        title: "Developent"
+        title: "Development"
     },
     {
         id: "3",
@@ -17,7 +17,7 @@ export const filterdatafromMenu = [
     },
     {
         id: "5",
-        title: "LifeStyle"
+        title: "Lifestyle"
     },
 ];
 
