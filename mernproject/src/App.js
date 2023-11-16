@@ -11,6 +11,9 @@ import Signup from "./Component/LoginRegister/auth/Signup";
 import Dashboard from "./Component/LoginRegister/pages/Dashboard";
 import {useState} from 'react'
 import BlogMain from './Component/BlogsExample/BlogMain';
+import CategoryPage from './Component/BlogsExample/CategoryPage';
+import TagPage from './Component/BlogsExample/TagPage';
+import BlogPage from './Component/BlogsExample/BlogPage';
 
 function App() {
 
@@ -30,6 +33,9 @@ function App() {
           <Route path="/register" element={ <Signup  setIsLoggedIn={setIsLoggedIn} />}/>
           <Route path="/dashboard" element={<Dashboard />}/>
           <Route path="/blogs" element={<BlogMain />}/>
+          <Route path="/blog/:blogId" element={<BlogPage />} />
+          <Route path="/tag/:tag" element={<TagPage/>} />
+          <Route path="/category/:category" element={<CategoryPage />} />
         </Routes>
     
  
