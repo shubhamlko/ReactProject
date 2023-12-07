@@ -1,5 +1,5 @@
-import Navbar from './Component/LoginRegister/Navbar';
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
+import { Routes, Route} from "react-router-dom";
 import Filter from "./Component/FilterExample/Filter";
 import Home from "./Component/Home";
 import TourPlan from "./Component/DataBindExample/TourPlan";
@@ -14,6 +14,9 @@ import BlogMain from './Component/BlogsExample/BlogMain';
 import CategoryPage from './Component/BlogsExample/CategoryPage';
 import TagPage from './Component/BlogsExample/TagPage';
 import BlogPage from './Component/BlogsExample/BlogPage';
+import ReduxCounterPage from "./Component/Redux/ReduxCounterPage";
+import { ReduxHome } from "./Component/Redux/ReduxCart/ReduxHome";
+import ReduxCartItem from "./Component/Redux/ReduxCart/ReduxCartItem";
 
 function App() {
 
@@ -36,6 +39,9 @@ function App() {
           <Route path="/blog/:blogId" element={<BlogPage />} />
           <Route path="/tag/:tag" element={<TagPage/>} />
           <Route path="/category/:category" element={<CategoryPage />} />
+          <Route path="/reduxcounter" element={<ReduxCounterPage />} />
+          <Route path="/reduxcart" element={<ReduxHome />} />
+          <Route path="/reduxcartItem" element={<ReduxCartItem />} />
         </Routes>
     
  

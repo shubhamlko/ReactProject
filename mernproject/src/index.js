@@ -7,13 +7,19 @@ import reportWebVitals from './reportWebVitals';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import  AppContextProvider  from './context/AppContext';
+import { Provider } from 'react-redux';
+import { store } from './Component/Redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
      <BrowserRouter>
           <AppContextProvider>
+               <Provider store={store}>
+
+               
                <App />
+               </Provider>
                <ToastContainer />
           </AppContextProvider>
 

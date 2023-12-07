@@ -1,0 +1,85 @@
+@import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
+
+.img-box {
+    width: 100%;
+    height: 250px;
+}
+
+.img-box img {
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
+}
+
+
+.loader-div {
+    font-family: system-ui;
+    background: #333;
+    color: white;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.circle-container {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100px;
+    aspect-ratio: 1/1;
+}
+
+.circle-svg {
+    --_circle-radius: 45px;
+    --_svg-width: 100px;
+    --_stroke-width: 10px;
+    /* svg-width - (circle-radius * 2) */
+
+    width: var(--_svg-width);
+    height: var(--_svg-width);
+
+    stroke: white;
+    /*   stroke-linecap: round; */
+    stroke-width: var(--_stroke-width);
+
+    stroke-dashoffset: 1;
+    stroke-dasharray: 1 1000;
+
+    animation: loader 1500ms infinite linear, spin 3000ms infinite linear;
+}
+
+@keyframes loader {
+    0% {
+        stroke-dashoffset: 1;
+        stroke-dasharray: 1 1000;
+    }
+
+    100% {
+        stroke-dashoffset: calc(var(--_circle-radius) * -2 * 3.1415);
+        stroke-dasharray: calc(var(--_circle-radius) * 2 * 3.1415) 1000;
+    }
+}
+
+@keyframes spin {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+}
+
+.pointer{
+    cursor: pointer !important;
+}
