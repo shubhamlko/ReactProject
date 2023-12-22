@@ -10,6 +10,7 @@ export default function AppContextProvider({children}){
     const value ={
         isLoggedIn,
         setIsLoggedIn
+        
     }
 
     return <AppContext.Provider value={value}>

@@ -1,20 +1,21 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { AppContext } from '../Appcontext'
+import React, { useContext, useRef} from 'react'
+import { AppContext } from '../Appcontext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const localEmail = localStorage.getItem("email")
     const localPassword = localStorage.getItem("password")
-
+    const { setIsLoggedIn} = useContext(AppContext);
     const email = useRef();
     const password = useRef();
-
-
-
+    const navigate = useNavigate()
     const loginHandler = (e) => {
         e.preventDefault();
         if (email.current.value === localEmail && password.current.value === localPassword) {
-            localStorage.setItem("SignUp", email.current.value)
-            alert("login successfully")
+            localStorage.setItem("loggedUser", email.current.value);
+            setIsLoggedIn(true);
+            alert("login successfully");
+            navigate("/")
          } else {
             alert("enter valid Email and Password")
         }

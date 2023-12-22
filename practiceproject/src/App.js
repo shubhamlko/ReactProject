@@ -7,7 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './Component/Auth/Login';
 import Cart from './Component/Pages/Cart';
 import PageNotFound from './Component/Pages/PageNotFound';
-import Protected from './Component/Routes/Protected';
+import Protected from './Component/Auth/Protected';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
        
       <Routes>
             <Route path="/registration" element={<Registration />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={ <Protected Component={Login}   />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/" element={<Main />} />
             <Route path="*" element={<PageNotFound />} />

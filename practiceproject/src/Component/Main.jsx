@@ -4,51 +4,48 @@ import Product from './Pages/Product';
 
 const Main = () => {
   const apiUrl = "https://fakestoreapi.com/products";
-  const [loading,setLoading] = useState(false);
-  const[posts,setPosts] = useState([])
+  const [loading, setLoading] = useState(false);
+  const [posts, setPosts] = useState([])
 
-  async function getProductData(){
+  async function getProductData() {
     setLoading(true)
-    try{
-        const res = await fetch(apiUrl);
-        const data = await res.json();
-        setPosts(data);
-        console.log("data Printing");
-        console.log(data)
+    try {
+      const res = await fetch(apiUrl);
+      const data = await res.json();
+      setPosts(data);
+
     }
-    catch{
+    catch {
       console.log("error aa rha h data fetch krne me");
       setPosts([])
     }
     setLoading(false)
   }
 
-  useEffect(() =>{
+  useEffect(() => {
     getProductData()
-  },[])
+  }, [])
 
   return (
     <>
-    
-          {
-            loading ? <Spinner /> : posts.length > 0 ?
-            (
-              <div className='row'>
 
-              
+      {
+        loading ? <Spinner /> : posts.length > 0 ?
+          (
+            <div className='row'>
               {
-                posts.map((post)=>{
-                    return <Product key={post.id} post={post} />
+                posts.map((post) => {
+                  return <Product key={post.id} post={post} />
                 })
               }
             </div>
-            ) :
-            <div>
-                    No record Found
-            </div>
-          }
+          ) :
+          <div>
+            No record Found
+          </div>
+      }
 
-    
+
     </>
   )
 }

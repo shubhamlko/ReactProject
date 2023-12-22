@@ -1,21 +1,19 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { AppContext } from '../Appcontext';
+import { AppContext } from '../Appcontext'
 
 const Navbar = () => {
 
-  const logout = () => {
+  const {isLoggedIn} = useContext(AppContext);
+  const localUser = localStorage.getItem("name")
 
+  const logout = () => {
     localStorage.removeItem("SignUp");
     toast.success("You have been logged out");
     window.location.reload();
   }
-  const deleteacount = () => {
-    localStorage.clear();
-    toast.error("Your account deleted successfully");
-    window.location.reload();
-  }
+
   return (
     <>
       <div className='p-3 bg-dark text-white mb-3'>
@@ -40,38 +38,19 @@ const Navbar = () => {
                   </button>
                 </Link>
                 {
-
-
-                  <Link to={"/login"} >
-                    <button className='btn btn-primary'>
-                      login
-                    </button>
-                  </Link>
+                  !isLoggedIn &&   <Link to={"/login"} > <button className='btn btn-primary'> login </button> </Link>
                 }
                 {
-                  <Link to={"/registration"} >
-                    <button className='btn btn-primary'>
-                      Registration
-                    </button>
-                  </Link>
+                   !isLoggedIn && <Link to={"/registration"} > <button className='btn btn-primary'> Registration </button> </Link>
                   }
-{
-                  <div className='text-warning fw-bold'>
-                    user name here
-                  </div>
-
+                {
+                 isLoggedIn &&   <div className='text-warning fw-bold'> {localUser} </div>
                 }
                 {
-                  <div className='text-white pointer fw-bold' onClick={logout}>
-                    Log Out
-                  </div>
+                  isLoggedIn &&   <div className='text-white pointer fw-bold' onClick={logout}> Log Out </div>
                 }
 
-                {
-                  <div className='text-white pointer fw-bold' onClick={deleteacount}>
-                    delete account
-                  </div>
-                }
+               
               </div>
             </div>
           </div>

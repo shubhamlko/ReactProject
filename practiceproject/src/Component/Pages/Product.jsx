@@ -8,9 +8,17 @@ const Product = ({ post }) => {
 
     const { cart } = useSelector((state) => state);
     const dispatch = useDispatch();
+    const {isLoggedIn} = useContext(AppContext)
+
     const addToCart = () => {
-        dispatch(addProduct(post));
-        toast.success("item added successfully")
+        if(isLoggedIn){
+            dispatch(addProduct(post));
+            toast.success("item added successfully")
+        }
+        else{
+            alert("You have not Logged yet Please Login First")
+        }
+       
     }
     const removeFromCart = () => {
         dispatch(removeProduct(post.id));
